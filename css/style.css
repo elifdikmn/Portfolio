@@ -12,6 +12,8 @@
   --color-accent-dark: #9c4630;
   --color-accent-soft: #ecd3c0;
   --color-secondary: #4b5d45;
+  --color-chart-2: #7a3b6b;
+  --color-chart-2-soft: #e9d9e5;
 
   --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -243,8 +245,30 @@ button:focus-visible {
   padding: 110px 0 90px;
 }
 
+.hero__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+  gap: 48px;
+  align-items: center;
+}
+
 .hero__inner {
-  max-width: 720px;
+  max-width: 640px;
+}
+
+.hero__photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+}
+
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero__kicker {
@@ -609,6 +633,280 @@ section {
 }
 
 /* ==========================================================================
+   How-it-works flow diagram
+   ========================================================================== */
+.flow-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.flow-step {
+  flex: 1 1 150px;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  position: relative;
+}
+
+.feature-card .flow-step {
+  background: var(--color-bg);
+}
+
+.flow-step__index {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-accent-dark);
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.flow-step__label {
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.flow-step__detail {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  display: block;
+}
+
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+  padding: 0 2px;
+  align-self: center;
+}
+
+/* ==========================================================================
+   Charts
+   ========================================================================== */
+.chart {
+  margin-top: 4px;
+}
+
+.chart__title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  margin-bottom: 12px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.chart-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.chart-legend__swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* Grouped bar chart (e.g. precision/recall by class) */
+.grouped-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.grouped-bar__row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.grouped-bar__label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.grouped-bar__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.grouped-bar__track {
+  position: relative;
+  height: 16px;
+  background: var(--color-bg-alt);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.feature-card .grouped-bar__track {
+  background: var(--color-bg);
+}
+
+.grouped-bar__fill {
+  height: 100%;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: width 0.6s ease;
+}
+
+.grouped-bar__value {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff8f2;
+  padding-left: 8px;
+  white-space: nowrap;
+}
+
+/* Ranked single-series bar list (e.g. skill demand, top salaries) */
+.ranked-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ranked-bar__row {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.ranked-bar__label {
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.ranked-bar__track {
+  height: 12px;
+  background: var(--color-bg-alt);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.feature-card .ranked-bar__track {
+  background: var(--color-bg);
+}
+
+.ranked-bar__fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.ranked-bar__value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  white-space: nowrap;
+}
+
+.chart-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+}
+
+/* Stat tile (single headline metric, e.g. adjusted R²) */
+.stat-tile {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 20px;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+
+.feature-card .stat-tile {
+  background: var(--color-bg);
+}
+
+.stat-tile__value {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: var(--color-accent-dark);
+  line-height: 1;
+}
+
+.stat-tile__body {
+  flex: 1 1 200px;
+}
+
+.stat-tile__label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.stat-tile__detail {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Icon row (e.g. dashboard/visualization types shipped) */
+.icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.icon-tile {
+  flex: 1 1 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 16px 12px;
+}
+
+.feature-card .icon-tile {
+  background: var(--color-bg);
+}
+
+.icon-tile svg {
+  width: 36px;
+  height: 36px;
+}
+
+.icon-tile__label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 720px) {
@@ -648,6 +946,17 @@ section {
     padding: 80px 0 60px;
   }
 
+  .hero__layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero__photo {
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    order: -1;
+  }
+
   section {
     padding: 60px 0;
   }
@@ -667,5 +976,22 @@ section {
 
   .contact-link__value {
     text-align: left;
+  }
+
+  .grouped-bar__row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .ranked-bar__row {
+    grid-template-columns: 84px 1fr auto;
+  }
+
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+
+  .flow-diagram {
+    flex-direction: column;
   }
 }

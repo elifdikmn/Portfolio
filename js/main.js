@@ -4,6 +4,154 @@ function renderTagList(items, className) {
   return items.map((item) => `<li class="${className}">${item}</li>`).join("");
 }
 
+const CHART_ICONS = {
+  treemap: `<svg viewBox="0 0 36 36" fill="none" stroke="var(--color-accent)" stroke-width="2"><rect x="2" y="2" width="32" height="32" rx="2"/><line x1="16" y1="2" x2="16" y2="34"/><line x1="2" y1="18" x2="16" y2="18"/><line x1="16" y1="22" x2="34" y2="22"/></svg>`,
+  sunburst: `<svg viewBox="0 0 36 36" fill="none" stroke="var(--color-accent)" stroke-width="2"><circle cx="18" cy="18" r="15"/><circle cx="18" cy="18" r="9.5"/><circle cx="18" cy="18" r="3.5"/><line x1="18" y1="3" x2="18" y2="33"/><line x1="3" y1="18" x2="33" y2="18"/></svg>`,
+  heatmap: `<svg viewBox="0 0 36 36"><rect x="2" y="2" width="9" height="9" fill="var(--color-accent)" opacity="0.85"/><rect x="13" y="2" width="9" height="9" fill="var(--color-accent)" opacity="0.45"/><rect x="24" y="2" width="9" height="9" fill="var(--color-accent)" opacity="0.25"/><rect x="2" y="13" width="9" height="9" fill="var(--color-accent)" opacity="0.35"/><rect x="13" y="13" width="9" height="9" fill="var(--color-accent)" opacity="0.95"/><rect x="24" y="13" width="9" height="9" fill="var(--color-accent)" opacity="0.55"/><rect x="2" y="24" width="9" height="9" fill="var(--color-accent)" opacity="0.2"/><rect x="13" y="24" width="9" height="9" fill="var(--color-accent)" opacity="0.5"/><rect x="24" y="24" width="9" height="9" fill="var(--color-accent)" opacity="0.75"/></svg>`,
+  table: `<svg viewBox="0 0 36 36" fill="none" stroke="var(--color-accent)" stroke-width="2"><rect x="2" y="2" width="32" height="32" rx="2"/><line x1="2" y1="13" x2="34" y2="13"/><line x1="2" y1="24" x2="34" y2="24"/><line x1="13" y1="2" x2="13" y2="34"/><line x1="24" y1="2" x2="24" y2="34"/></svg>`,
+};
+
+function renderFlowDiagram(flow) {
+  if (!flow || !flow.length) return "";
+  const steps = flow
+    .map(
+      (step, i) => `
+      ${i > 0 ? `<span class="flow-arrow" aria-hidden="true">→</span>` : ""}
+      <div class="flow-step">
+        <span class="flow-step__index">0${i + 1}</span>
+        <span class="flow-step__label">${step.label}</span>
+        <span class="flow-step__detail">${step.detail}</span>
+      </div>`
+    )
+    .join("");
+  return `
+    <div class="project-block">
+      <p class="project-label">How it works</p>
+      <div class="flow-diagram">${steps}</div>
+    </div>
+  `;
+}
+
+function renderGroupedBarChart(chart) {
+  const legend = chart.series
+    .map(
+      (s) => `<span class="chart-legend__item"><span class="chart-legend__swatch" style="background:${s.color}"></span>${s.name}</span>`
+    )
+    .join("");
+
+  const rows = chart.categories
+    .map((cat, ci) => {
+      const bars = chart.series
+        .map((s) => {
+          const val = s.values[ci];
+          return `
+          <div class="grouped-bar__track">
+            <div class="grouped-bar__fill" style="width:${val}%; background:${s.color}; justify-content:flex-end;">
+              <span class="grouped-bar__value">${val}${chart.unit || ""}</span>
+            </div>
+          </div>`;
+        })
+        .join("");
+      return `
+      <div class="grouped-bar__row">
+        <span class="grouped-bar__label">${cat}</span>
+        <div class="grouped-bar__bars">${bars}</div>
+      </div>`;
+    })
+    .join("");
+
+  return `
+    <div class="chart">
+      ${chart.title ? `<p class="chart__title">${chart.title}</p>` : ""}
+      <div class="chart-legend">${legend}</div>
+      <div class="grouped-bar">${rows}</div>
+    </div>
+  `;
+}
+
+function renderRankedBarChart(chart) {
+  const max = Math.max(...chart.items.map((it) => it.value));
+  const rows = chart.items
+    .map((it) => {
+      const pct = Math.max(6, Math.round((it.value / max) * 100));
+      return `
+      <div class="ranked-bar__row">
+        <span class="ranked-bar__label">${it.label}</span>
+        <div class="ranked-bar__track"><div class="ranked-bar__fill" style="width:${pct}%"></div></div>
+        <span class="ranked-bar__value">${it.displayValue ?? it.value}</span>
+      </div>`;
+    })
+    .join("");
+
+  return `
+    <div class="chart">
+      ${chart.title ? `<p class="chart__title">${chart.title}</p>` : ""}
+      <div class="ranked-bar">${rows}</div>
+    </div>
+  `;
+}
+
+function renderStatChart(chart) {
+  return `
+    <div class="chart">
+      ${chart.title ? `<p class="chart__title">${chart.title}</p>` : ""}
+      <div class="stat-tile">
+        <span class="stat-tile__value">${chart.value}</span>
+        <div class="stat-tile__body">
+          <p class="stat-tile__label">${chart.label}</p>
+          <p class="stat-tile__detail">${chart.detail}</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderIconRowChart(chart) {
+  const tiles = chart.items
+    .map(
+      (it) => `
+      <div class="icon-tile">
+        ${CHART_ICONS[it.icon] || ""}
+        <span class="icon-tile__label">${it.label}</span>
+      </div>`
+    )
+    .join("");
+
+  return `
+    <div class="chart">
+      ${chart.title ? `<p class="chart__title">${chart.title}</p>` : ""}
+      <div class="icon-row">${tiles}</div>
+    </div>
+  `;
+}
+
+function renderOneChart(chart) {
+  switch (chart.type) {
+    case "grouped-bar":
+      return renderGroupedBarChart(chart);
+    case "ranked-bar":
+      return renderRankedBarChart(chart);
+    case "stat":
+      return renderStatChart(chart);
+    case "icon-row":
+      return renderIconRowChart(chart);
+    default:
+      return "";
+  }
+}
+
+function renderCharts(chart) {
+  if (!chart) return "";
+  const charts = Array.isArray(chart) ? chart : [chart];
+  const inner = charts.map(renderOneChart).join("");
+  return `
+    <div class="project-block">
+      <p class="project-label">Plots</p>
+      <div class="chart-pair">${inner}</div>
+    </div>
+  `;
+}
+
 function renderProjectBody(project) {
   return `
     <div class="project-block">
@@ -14,6 +162,7 @@ function renderProjectBody(project) {
       <p class="project-label">The approach</p>
       <ul class="project-list">${renderTagList(project.approach, "project-list__item")}</ul>
     </div>
+    ${renderFlowDiagram(project.flow)}
     <div class="project-block">
       <p class="project-label">Tools</p>
       <ul class="tag-list">${renderTagList(project.tools, "tag")}</ul>
@@ -22,6 +171,7 @@ function renderProjectBody(project) {
       <p class="project-label">The results</p>
       <ul class="project-list">${renderTagList(project.results, "project-list__item")}</ul>
     </div>
+    ${renderCharts(project.chart)}
   `;
 }
 
@@ -36,9 +186,14 @@ function renderFeaturedProject(project, index) {
         <p class="feature-card__highlight">${project.highlight}</p>
       </div>
       ${renderProjectBody(project)}
-      <a class="btn btn--primary" href="${project.link}" target="_blank" rel="noopener noreferrer">${project.linkLabel} ↗</a>
+      ${renderProjectLink(project, "btn--primary")}
     </article>
   `;
+}
+
+function renderProjectLink(project, btnClass) {
+  if (!project.link) return "";
+  return `<a class="btn ${btnClass}" href="${project.link}" target="_blank" rel="noopener noreferrer">${project.linkLabel || "View project"} ↗</a>`;
 }
 
 function renderProjectCard(project, index) {
@@ -50,7 +205,7 @@ function renderProjectCard(project, index) {
       <p class="project-card__tagline">${project.tagline}</p>
       <p class="project-card__highlight">${project.highlight}</p>
       ${renderProjectBody(project)}
-      <a class="btn btn--ghost" href="${project.link}" target="_blank" rel="noopener noreferrer">${project.linkLabel} ↗</a>
+      ${renderProjectLink(project, "btn--ghost")}
     </article>
   `;
 }
