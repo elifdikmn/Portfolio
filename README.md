@@ -37,13 +37,18 @@ python3 -m http.server 8000
 
 then open `http://localhost:8000`.
 
-## Deploying (GitHub Pages)
+## Deploying
 
-1. Push this repo to GitHub (already set up if you're reading this from the repo).
-2. Go to **Settings → Pages** on the repo.
-3. Under "Build and deployment", set Source to **Deploy from a branch**, branch `main` (or
-   whichever branch you push this to), folder `/ (root)`.
-4. Your site will be live at `https://elifdikmn.github.io/Portfolio/` within a minute or two.
+**GitHub Pages:**
+1. Go to **Settings → Pages** on the repo.
+2. Under "Build and deployment", set Source to **Deploy from a branch**, then pick the branch
+   this code actually lives on (check the branch dropdown on the repo's code tab if unsure —
+   there may not be a `main` branch yet), folder `/ (root)`.
+3. Your site will be live at `https://elifdikmn.github.io/Portfolio/` within a minute or two.
+
+**Vercel / Netlify** (recommended — auto-redeploys on every push, no settings to get wrong):
+Sign in with GitHub on vercel.com or netlify.com, import this repo, and deploy. No build command
+or framework needed — it's a static site. You'll get a live URL immediately.
 
 ## Notes
 
