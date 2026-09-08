@@ -74,9 +74,9 @@ const PROJECTS = [
   },
   {
     title: "Data Privacy Assistant",
-    period: "2025 – Present",
+    period: "2025",
     featured: false,
-    tagline: "Research internship project at Università di Bologna: an LLM-powered pipeline and dashboard suite auditing what GPT Actions actually collect.",
+    tagline: "A research internship project at Università di Bologna: an LLM-powered pipeline and dashboard suite auditing what GPT Actions actually collect.",
     problem: "Privacy policies for LLM plugins and GPT Actions are long, vague, and rarely reflect what's actually collected in practice. As part of my research internship at Università di Bologna, I set out to make that gap visible and explorable instead of theoretical.",
     approach: [
       "Built an end-to-end ingestion pipeline: pulled GPT app manifests and Action specs, fetched their privacy policies, and normalized everything to JSON/Parquet.",
@@ -93,7 +93,7 @@ const PROJECTS = [
     ],
     tools: ["Python", "Plotly / Dash", "OpenAI API", "LangChain", "Pandas", "NumPy", "Selenium", "FastAPI", "React"],
     results: [
-      "Shipped a working research tool, not just an analysis: ingestion pipeline + LLM chatbot + multi-view dashboards, now part of ongoing work at Università di Bologna.",
+      "Shipped a working research tool, not just an analysis: ingestion pipeline + LLM chatbot + multi-view dashboards, completed during my research internship at Università di Bologna.",
       "Coverage/consistency metrics surface concrete gaps between what GPT Actions claim to collect and what their policies actually document.",
       "First project where I owned the full stack end to end — data pipeline, LLM integration, and the visualization layer."
     ],
