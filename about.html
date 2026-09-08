@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Elif Dikmen</title>
+  <meta name="description" content="About Elif Dikmen: Computer Science graduate, data privacy research intern at the University of Bologna, and current Georgia Tech OMSA student specializing in Data Science." />
+
+  <meta property="og:title" content="About — Elif Dikmen" />
+  <meta property="og:description" content="Computer Science graduate, Bologna research intern, and current Georgia Tech OMSA student specializing in Data Science." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-logo">Elif Dikmen</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ Page header ============ -->
+    <section class="page-header">
+      <div class="container">
+        <p class="section-kicker reveal">About</p>
+        <h1 class="section-title reveal">Hi, I'm Elif</h1>
+        <p class="section-intro reveal">
+          Computer Science graduate, data privacy research intern at the University of Bologna, and
+          current Georgia Tech OMSA student. Here's the longer version of how I got here.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ My path ============ -->
+    <section id="path">
+      <div class="container">
+        <p class="section-kicker reveal">My path</p>
+        <h2 class="section-title reveal">From Yeditepe to Bologna to Georgia Tech</h2>
+
+        <p class="about-text reveal">
+          I studied Computer Science at Yeditepe University, where I found the parts of the discipline
+          I actually wanted to keep doing after graduation: statistics, experimentation, and building
+          things that learn from data instead of just following instructions.
+        </p>
+        <p class="about-text reveal">
+          That pull led me to a research internship at the Università di Bologna, where I spent time
+          working on data privacy — specifically, auditing what GPT Actions and LLM plugins actually
+          collect versus what their privacy policies claim. It was my first time owning a project end
+          to end: data pipeline, LLM integration, and the visualization layer — and it's what convinced
+          me I wanted a career built around exactly that kind of work.
+        </p>
+        <p class="about-text reveal">
+          I'm now channeling that into Georgia Tech's Online Master of Science in Analytics (OMSA),
+          specializing in Data Science, to go deeper into the statistics and ML theory behind the
+          questions I keep chasing. I'm looking for a Data Scientist / ML Engineer role where I can put
+          it to work building models, not just backtesting them.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Research internship ============ -->
+    <section id="research" class="section--alt">
+      <div class="container">
+        <p class="section-kicker reveal">Research</p>
+        <h2 class="section-title reveal">Data privacy, Università di Bologna</h2>
+        <p class="section-intro reveal">
+          A completed research internship on data privacy — here's the problem I worked on and what I
+          actually built.
+        </p>
+
+        <article class="feature-card reveal">
+          <div class="feature-card__header">
+            <p class="project-period">Research Internship · Completed</p>
+            <h3 class="feature-card__title">Auditing what GPT Actions actually collect</h3>
+            <p class="feature-card__tagline">
+              An LLM-powered pipeline and dashboard suite built during my time at Università di Bologna.
+            </p>
+          </div>
+
+          <div class="project-block">
+            <p class="project-label">The problem</p>
+            <p class="project-text">
+              Privacy policies for LLM plugins and GPT Actions are long, vague, and rarely reflect what's
+              actually collected in practice. My research set out to make that gap visible and explorable
+              instead of theoretical.
+            </p>
+          </div>
+
+          <div class="project-block">
+            <p class="project-label">What I did</p>
+            <ul class="project-list">
+              <li class="project-list__item">Built an end-to-end ingestion pipeline that pulled GPT app manifests and Action specs, fetched their privacy policies, and normalized everything to JSON/Parquet.</li>
+              <li class="project-list__item">Aligned the taxonomy against a published University of Washington dataset to seed categories and keep provenance consistent across data versions.</li>
+              <li class="project-list__item">Linked policies back to their apps/actions via IDs and domains, then computed coverage and consistency metrics to flag gaps and outliers.</li>
+              <li class="project-list__item">Built an LLM-powered chatbot (OpenAI API + LangChain) that answers questions about what an action collects and visualizes the answer directly in the UI.</li>
+              <li class="project-list__item">Shipped interactive dashboards — treemap, sunburst, pie chart, heatmaps, and a searchable table — plus a small privacy-awareness game.</li>
+            </ul>
+          </div>
+
+          <div class="project-block">
+            <p class="project-label">Tools</p>
+            <ul class="tag-list">
+              <li class="tag">Python</li>
+              <li class="tag">Plotly / Dash</li>
+              <li class="tag">OpenAI API</li>
+              <li class="tag">LangChain</li>
+              <li class="tag">Pandas</li>
+              <li class="tag">NumPy</li>
+              <li class="tag">Selenium</li>
+              <li class="tag">FastAPI</li>
+              <li class="tag">React</li>
+            </ul>
+          </div>
+
+          <p class="feature-card__highlight">
+            The result: a working research tool, not just an analysis — and the first project where I
+            owned the full stack end to end.
+          </p>
+
+          <p style="margin-top: 24px;">
+            <a href="projects.html" class="btn btn--ghost">View the technical write-up ↗</a>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ Why ML ============ -->
+    <section id="love">
+      <div class="container">
+        <p class="section-kicker reveal">Motivation</p>
+        <h2 class="section-title reveal">Why machine learning</h2>
+        <p class="about-text reveal">
+          Machine learning is what pulled me into this field, and it's what keeps me here. I love the
+          moment a model goes from noise to signal — where feature engineering and validation turn a
+          hunch into something you can actually trust. It's why every project on this site, from
+          football predictions to attendance forecasting, comes back to the same core loop: clean the
+          data, engineer the signal, validate hard, ship something real.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Skills ============ -->
+    <section id="skills" class="section--alt">
+      <div class="container">
+        <p class="section-kicker reveal">Toolbox</p>
+        <h2 class="section-title reveal">Skills &amp; Tools</h2>
+        <p class="section-intro reveal">What I've actually used to ship the projects on this site — not an aspirational list.</p>
+
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <h3>Languages</h3>
+            <ul class="tag-list">
+              <li class="tag">Python</li>
+              <li class="tag">SQL</li>
+              <li class="tag">R</li>
+              <li class="tag">Java</li>
+              <li class="tag">JavaScript / TypeScript</li>
+              <li class="tag">C / C++</li>
+              <li class="tag">PHP</li>
+              <li class="tag">Swift</li>
+              <li class="tag">Dart</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>ML &amp; Data Science</h3>
+            <ul class="tag-list">
+              <li class="tag">scikit-learn</li>
+              <li class="tag">XGBoost</li>
+              <li class="tag">TensorFlow</li>
+              <li class="tag">Keras</li>
+              <li class="tag">PyTorch</li>
+              <li class="tag">Pandas</li>
+              <li class="tag">NumPy</li>
+              <li class="tag">Feature Engineering</li>
+              <li class="tag">Cross-Validation</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Data Visualization</h3>
+            <ul class="tag-list">
+              <li class="tag">Matplotlib</li>
+              <li class="tag">Seaborn</li>
+              <li class="tag">Plotly / Dash</li>
+              <li class="tag">Tableau</li>
+              <li class="tag">Power BI</li>
+              <li class="tag">D3.js</li>
+              <li class="tag">Chart.js</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Data &amp; Backend</h3>
+            <ul class="tag-list">
+              <li class="tag">PostgreSQL</li>
+              <li class="tag">MySQL</li>
+              <li class="tag">BigQuery</li>
+              <li class="tag">SQLite</li>
+              <li class="tag">FastAPI</li>
+              <li class="tag">Flask</li>
+              <li class="tag">Django</li>
+              <li class="tag">REST APIs</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>AI &amp; LLM Tooling</h3>
+            <ul class="tag-list">
+              <li class="tag">OpenAI API</li>
+              <li class="tag">LangChain</li>
+              <li class="tag">Prompt Engineering</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Tools &amp; Practices</h3>
+            <ul class="tag-list">
+              <li class="tag">Git / GitHub</li>
+              <li class="tag">VS Code</li>
+              <li class="tag">Web Scraping</li>
+              <li class="tag">Model Tuning (GridSearchCV)</li>
+              <li class="tag">Selenium</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="skills-note reveal">
+          Certified: GTx ISYE6501x (Analytics Modeling) &amp; GTx CSE6040x (Computing for Data
+          Analysis), Georgia Institute of Technology — now continuing that path through the full OMSA.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Closing CTA ============ -->
+    <section id="cta" class="home-cta">
+      <div class="container">
+        <h2 class="home-cta__title reveal">See what this all turned into</h2>
+        <p class="home-cta__intro reveal">
+          The projects page has the full technical breakdown — pipelines, models, and results.
+        </p>
+        <div class="home-cta__actions reveal">
+          <a href="projects.html" class="btn btn--primary">View my projects</a>
+          <a href="contact.html" class="btn btn--ghost">Get in touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Elif Dikmen. Built by hand, updated as I ship more.</p>
+      <p><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

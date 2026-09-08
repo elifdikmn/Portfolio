@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Elif Dikmen</title>
+  <meta name="description" content="Selected data science and machine learning projects by Elif Dikmen — from a football match prediction pipeline to a data privacy research tool built at the University of Bologna." />
+
+  <meta property="og:title" content="Projects — Elif Dikmen" />
+  <meta property="og:description" content="Selected data science and machine learning projects — the problem, the approach, and what actually came out of it." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-logo">Elif Dikmen</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ Page header ============ -->
+    <section class="page-header">
+      <div class="container">
+        <p class="section-kicker reveal">Selected work</p>
+        <h1 class="section-title reveal">Projects</h1>
+        <p class="section-intro reveal">
+          A few of the projects I've built — the problem I was chasing, how I approached it, and what
+          actually came out of it. More on
+          <a href="https://github.com/elifdikmn" target="_blank" rel="noopener noreferrer">GitHub</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Projects ============ -->
+    <section class="projects">
+      <div class="container">
+        <div id="featured-project"><!-- populated by js/main.js from js/projects-data.js --></div>
+        <div id="project-grid" class="project-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ Closing CTA ============ -->
+    <section id="cta" class="home-cta">
+      <div class="container">
+        <h2 class="home-cta__title reveal">Want to know more about how I got here?</h2>
+        <p class="home-cta__intro reveal">
+          Read the story behind these projects — including my research internship at Università di
+          Bologna — on my About page.
+        </p>
+        <div class="home-cta__actions reveal">
+          <a href="about.html" class="btn btn--primary">Read my About page</a>
+          <a href="contact.html" class="btn btn--ghost">Get in touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Elif Dikmen. Built by hand, updated as I ship more.</p>
+      <p><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <script src="js/projects-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

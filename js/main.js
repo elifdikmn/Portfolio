@@ -267,25 +267,15 @@ function setupScrollReveal() {
 }
 
 function setupActiveNavLink() {
-  const sections = document.querySelectorAll("main section[id]");
-  const navLinks = document.querySelectorAll(".site-nav a[href^='#']");
-  if (!sections.length || !navLinks.length || !("IntersectionObserver" in window)) return;
+  const navLinks = document.querySelectorAll(".site-nav a");
+  if (!navLinks.length) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const link = document.querySelector(`.site-nav a[href="#${entry.target.id}"]`);
-        if (!link) return;
-        if (entry.isIntersecting) {
-          navLinks.forEach((l) => l.classList.remove("is-active"));
-          link.classList.add("is-active");
-        }
-      });
-    },
-    { rootMargin: "-45% 0px -45% 0px" }
-  );
+  const currentPage = location.pathname.split("/").pop() || "index.html";
 
-  sections.forEach((section) => observer.observe(section));
+  navLinks.forEach((link) => {
+    const linkPage = link.getAttribute("href");
+    link.classList.toggle("is-active", linkPage === currentPage);
+  });
 }
 
 function setupFooterYear() {

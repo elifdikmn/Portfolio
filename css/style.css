@@ -2,18 +2,18 @@
    Variables & reset
    ========================================================================== */
 :root {
-  --color-bg: #fbf6ef;
-  --color-bg-alt: #f3ebdd;
-  --color-card: #fffdf9;
-  --color-text: #2a2420;
-  --color-text-muted: #6b5f52;
-  --color-border: #e4d8c4;
-  --color-accent: #bf5b3f;
-  --color-accent-dark: #9c4630;
-  --color-accent-soft: #ecd3c0;
-  --color-secondary: #4b5d45;
-  --color-chart-2: #7a3b6b;
-  --color-chart-2-soft: #e9d9e5;
+  --color-bg: #faf8fb;
+  --color-bg-alt: #f1ecf5;
+  --color-card: #ffffff;
+  --color-text: #3f3a46;
+  --color-text-muted: #7c7488;
+  --color-border: #e4dcec;
+  --color-accent: #8573ab;
+  --color-accent-dark: #6a5989;
+  --color-accent-soft: #ece4f4;
+  --color-secondary: #7c9686;
+  --color-chart-2: #cc9aa0;
+  --color-chart-2-soft: #f5e8ea;
 
   --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -144,7 +144,7 @@ button:focus-visible {
 
 .btn--primary {
   background: var(--color-accent);
-  color: #fff8f2;
+  color: #ffffff;
 }
 
 .btn--primary:hover {
@@ -326,6 +326,92 @@ button:focus-visible {
 }
 
 /* ==========================================================================
+   Page header (About / Projects / Contact)
+   ========================================================================== */
+.page-header {
+  padding: 132px 0 32px;
+}
+
+/* ==========================================================================
+   Home — highlights
+   ========================================================================== */
+.home-highlights {
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.highlight-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+}
+
+.highlight-card__label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  margin-bottom: 10px;
+}
+
+.highlight-card__title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.highlight-card__body {
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+.highlight-card__link {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-accent-dark);
+  text-decoration: none;
+}
+
+.highlight-card__link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Home — closing CTA
+   ========================================================================== */
+.home-cta {
+  text-align: center;
+}
+
+.home-cta__title {
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  margin-bottom: 14px;
+}
+
+.home-cta__intro {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  max-width: 56ch;
+  margin: 0 auto 32px;
+}
+
+.home-cta__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ==========================================================================
    Section shared styles
    ========================================================================== */
 section {
@@ -352,7 +438,19 @@ section {
   margin-bottom: 48px;
 }
 
-.projects {
+.about-text {
+  color: var(--color-text);
+  font-size: 1.05rem;
+  max-width: 68ch;
+  margin-bottom: 18px;
+}
+
+.about-text:last-of-type {
+  margin-bottom: 0;
+}
+
+.projects,
+.section--alt {
   background: var(--color-bg-alt);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
@@ -777,7 +875,7 @@ section {
 .grouped-bar__value {
   font-size: 0.72rem;
   font-weight: 700;
-  color: #fff8f2;
+  color: #ffffff;
   padding-left: 8px;
   white-space: nowrap;
 }
@@ -944,6 +1042,10 @@ section {
 
   .hero {
     padding: 80px 0 60px;
+  }
+
+  .page-header {
+    padding: 100px 0 24px;
   }
 
   .hero__layout {
