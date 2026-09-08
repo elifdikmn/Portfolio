@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elif Dikmen — Data Scientist &amp; ML Engineer</title>
+  <meta name="description" content="Portfolio of Elif Dikmen — a data scientist and ML engineer building predictive models and full-stack data applications, currently pursuing Georgia Tech's OMSA." />
+
+  <meta property="og:title" content="Elif Dikmen — Data Scientist & ML Engineer" />
+  <meta property="og:description" content="Predictive models, data analysis, and full-stack data apps — plus what I'm learning next at Georgia Tech's OMSA." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="#hero" class="site-logo">Elif Dikmen</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ Hero ============ -->
+    <section id="hero" class="hero">
+      <div class="container hero__inner">
+        <p class="hero__kicker reveal">Hi, I'm</p>
+        <h1 class="hero__name reveal">Elif Dikmen</h1>
+        <p class="hero__role reveal">Data Scientist &amp; ML Engineer, in progress</p>
+        <p class="hero__bio reveal">
+          I'm a Computer Science graduate who keeps building projects that circle the same question:
+          what is this data actually trying to tell us? This August I started the Online Master of
+          Science in Analytics (OMSA) at Georgia Tech to go deeper into the statistics and ML behind
+          that question — and I'm looking for a Data Scientist / ML Engineer role where I can put it
+          to work building models, not just backtesting them.
+        </p>
+        <div class="hero__status reveal">
+          <span class="status-dot" aria-hidden="true"></span>
+          Currently: OMSA @ Georgia Tech · Open to Data Scientist / ML Engineer roles
+        </div>
+        <div class="hero__actions reveal">
+          <a href="#projects" class="btn btn--primary">See my projects</a>
+          <a href="#contact" class="btn btn--ghost">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Projects ============ -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <p class="section-kicker reveal">Selected work</p>
+        <h2 class="section-title reveal">Projects</h2>
+        <p class="section-intro reveal">
+          A few of the projects I've built — the problem I was chasing, how I approached it, and what
+          actually came out of it. More on
+          <a href="https://github.com/elifdikmn" target="_blank" rel="noopener noreferrer">GitHub</a>.
+        </p>
+
+        <div id="featured-project"><!-- populated by js/main.js from js/projects-data.js --></div>
+        <div id="project-grid" class="project-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============ Skills ============ -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <p class="section-kicker reveal">Toolbox</p>
+        <h2 class="section-title reveal">Skills &amp; Tools</h2>
+        <p class="section-intro reveal">What I've actually used to ship the projects above — not an aspirational list.</p>
+
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <h3>Languages</h3>
+            <ul class="tag-list">
+              <li class="tag">Python</li>
+              <li class="tag">SQL</li>
+              <li class="tag">JavaScript / TypeScript</li>
+              <li class="tag">Swift</li>
+              <li class="tag">C</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>ML &amp; Data Science</h3>
+            <ul class="tag-list">
+              <li class="tag">scikit-learn</li>
+              <li class="tag">TensorFlow</li>
+              <li class="tag">XGBoost</li>
+              <li class="tag">Pandas</li>
+              <li class="tag">NumPy</li>
+              <li class="tag">Feature Engineering</li>
+              <li class="tag">Cross-Validation</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Data &amp; Backend</h3>
+            <ul class="tag-list">
+              <li class="tag">PostgreSQL</li>
+              <li class="tag">SQLite</li>
+              <li class="tag">FastAPI</li>
+              <li class="tag">Flask</li>
+              <li class="tag">REST APIs</li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Tools &amp; Practices</h3>
+            <ul class="tag-list">
+              <li class="tag">Git / GitHub</li>
+              <li class="tag">VS Code</li>
+              <li class="tag">Web Scraping</li>
+              <li class="tag">Model Tuning (GridSearchCV)</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="skills-note reveal">
+          Currently deepening: statistical modeling and analytics at scale, through Georgia Tech's OMSA.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <p class="section-kicker reveal">Say hello</p>
+        <h2 class="section-title reveal">Let's talk data</h2>
+        <p class="section-intro reveal">
+          I'm actively looking for Data Scientist / ML Engineer opportunities — or just want to talk
+          about a project. Reach out, I read everything.
+        </p>
+
+        <div class="contact-links reveal">
+          <a class="contact-link" href="mailto:eelifddikmen@gmail.com">
+            <span class="contact-link__label">Email</span>
+            <span class="contact-link__value">eelifddikmen@gmail.com ↗</span>
+          </a>
+          <a class="contact-link" href="https://github.com/elifdikmn" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__label">GitHub</span>
+            <span class="contact-link__value">github.com/elifdikmn ↗</span>
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/elifdikmen" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__label">LinkedIn</span>
+            <span class="contact-link__value">linkedin.com/in/elifdikmen ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Elif Dikmen. Built by hand, updated as I ship more.</p>
+      <p><a href="#hero">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <script src="js/projects-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
